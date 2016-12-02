@@ -1,218 +1,237 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="dependencies.js" type="text/javascript" charset="utf-8" defer></script>
-    <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 
-    <title>Smoke-Free Places</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
+<head>
+  <script src="dependencies.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 
-  </head>
-  <body>
+  <title>Smoke-Free Places</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
 
-    <!-- NAVBAR STARTS -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+</head>
+
+<body>
+
+  <!-- NAVBAR STARTS -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <!-- <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span> -->
           </button>
-          <a class="navbar-brand" href="#">Smoke-Free Places</a>
+        <a class="navbar-brand" href="#">Smoke-Free Places</a>
 
-        </div>
+      </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                role="button" aria-haspopup="true" aria-expanded="false">Sign up / in
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up / in
                 <!--<span class="caret"></span>-->
               </a>
-              <ul class="dropdown-menu">
-                <!--<li role="separator" class="divider"></li>-->
+            <ul class="dropdown-menu">
+              <!--<li role="separator" class="divider"></li>-->
 
-                <!-- sign up - Button trigger modal -->
-                <li><a href="#">
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+              <!-- sign up - Button trigger modal -->
+              <li>
+                <a href="#">
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
                       Sign up
                     </button>
-                    </a>
-                </li>
-                <!-- sign in - Button trigger modal -->
-                <li><a href="#">
+                </a>
+              </li>
+
+              <!-- sign in - Button trigger modal -->
+              <li>
+                <a href="#">
                   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in-modal">
                     Sign in
                   </button>
-                  </a>
-                </li>
-                <!-- change password - Button trigger modal -->
-                <li><a href="#">
+                </a>
+              </li>
+
+              <!-- change password - Button trigger modal -->
+              <li>
+                <a href="#">
                   <button id="change-password-open" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#change-password-modal">
                     Change password
                   </button>
-                  </a>
-                </li>
-                <!-- Sign Out Button  -->
-                <li>
-                    <a href="#">
-                    <form id="sign-out">
+                </a>
+              </li>
+
+              <!-- Sign Out Button  -->
+              <li>
+                <a href="#">
+                  <form id="sign-out">
                     <button type="submit" class="btn btn-primary btn-lg">
                       Sign Out
                     </button>
-                    </form>
-                    </a>
-                 </li>
+                  </form>
+                </a>
+              </li>
 
-              </ul>
-            </li>
+              <!-- Create Places Button  -->
+              <li>
+                <a href="#">
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-place-modal">
+                    Add a Place
+                  </button>
+                </a>
+              </li>
+
+          </li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-      <h5 id="messages"></h5>
-    </nav>
-    <!-- NAVBAR ENDS -->
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+    <h5 id="messages"></h5>
+  </nav>
+  <!-- NAVBAR ENDS -->
 
-    <!-- Sign up Modal -->
-    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-            <h4 class="modal-title">Sign Up</h4>
-          </div>
-          <div class="modal-body">
-            <form id="sign-up" class="modal-form">
-              <div class="form-group">
-                <input name="credentials[email]" type="email" class="form-control" id="sign-up-email" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
+  <!-- Sign up Modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up" class="modal-form">
+            <div class="form-group">
+              <input name="credentials[email]" type="email" class="form-control" id="sign-up-email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type="password" class="form-control" id="sign-up-password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign in Modal -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in" class="modal-form">
+            <div class="form-group">
+              <input name="credentials[email]" type="email" class="form-control" id="sign-in-email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type="password" class="form-control" id="sign-in-password" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change password Modal -->
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title">Change Password</h2>
+        </div>
+        <div class="modal-body">
+          <form id="change-password" class="modal-form">
+            <div class="form-group">
+              <input type="email" class="form-control" id="change-password-email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <input name="passwords[old]" type="password" class="form-control" id="old-password" placeholder="Old Password">
+            </div>
+            <div class="form-group">
+              <input name="passwords[new]" type="password" class="form-control" id="new-password" placeholder="New Password">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Places Modal -->
+  <div class="modal fade" id="create-place-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add a Place to the map</h4>
+        </div>
+        <div class="modal-body">
+          <form id="create-place" class="modal-form">
+            <div class="form-group">
+              <input name="place[name]" type="text" class="form-control" id="create-place-name" placeholder="Enter name of place">
+              <!-- aria-describedby="emailHelp" <=this goes inside input tag above
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <!-- <div class="form-group">
                 <input name="credentials[password]" type="password" class="form-control" id="sign-up-password" placeholder="Password">
               </div>
               <div class="form-group">
                 <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
               </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sign in Modal -->
-    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Sign In</h4>
-          </div>
-          <div class="modal-body">
-            <form id="sign-in" class="modal-form">
               <div class="form-group">
-                <input name="credentials[email]" type="email" class="form-control" id="sign-in-email" aria-describedby="emailHelp" placeholder="Enter email">
+                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
               </div>
               <div class="form-group">
-                <input name="credentials[password]" type="password" class="form-control" id="sign-in-password" placeholder="Password">
-              </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Change password Modal -->
-    <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h2 class="modal-title">Change Password</h2>
-          </div>
-          <div class="modal-body">
-            <form id="change-password" class="modal-form">
-              <div class="form-group">
-                <input type="email" class="form-control" id="change-password-email" aria-describedby="emailHelp" placeholder="Enter email">
+                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
               </div>
               <div class="form-group">
-                <input name="passwords[old]" type="password" class="form-control" id="old-password" placeholder="Old Password">
+                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
               </div>
               <div class="form-group">
-                <input name="passwords[new]" type="password" class="form-control" id="new-password" placeholder="New Password">
-              </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sign out Modal -->
-    <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Sign In</h4>
-          </div>
-          <div class="modal-body">
-            <form class="sign-in-form">
-              <div class="form-group">
-                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password">
-              </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Game History Modal
-    <div class="modal fade" id="show-history-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Show history</h4>
-          </div>
-          <div class="modal-body">
+                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
+              </div> -->
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" id="show-history-button">Submit</button>
-              <div class="game-history-div">
-              </div>
-          </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
       </div>
     </div>
-    -->
+  </div>
 
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.967913, lng: 23.739452},
-          zoom: 5
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8bJGUi9aVbtDkRBpo2UOafemAo55D4-Y&callback=initMap"
-    async defer></script>
-  </body>
+  <div id="map"></div>
+  <script>
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 37.967913,
+          lng: 23.739452
+        },
+        zoom: 5
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8bJGUi9aVbtDkRBpo2UOafemAo55D4-Y&callback=initMap" async defer></script>
+</body>
+
 </html>

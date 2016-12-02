@@ -36,6 +36,15 @@ const onChangePassword = function(event){
   .fail(ui.fail);
 };
 
+const onCreatePlace = function(event){
+  console.log(event, "create-place!");
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.createPlace(data)
+  .done(ui.createPlaceSuccess)
+  .fail(ui.fail);
+};
+
 
 
 const addHandlers = () => {
@@ -43,6 +52,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#create-place').on('submit', onCreatePlace);
 };
 
 module.exports = {
