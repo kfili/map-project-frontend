@@ -9,7 +9,7 @@ const onSignUp = function(event){
   let data = getFormFields(event.target);
   api.signUp(data)
   .done(ui.signUpSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onSignIn = function(event){
@@ -17,7 +17,7 @@ const onSignIn = function(event){
   let data = getFormFields(event.target);
   api.signIn(data)
   .done(ui.signInSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onSignOut = function(event){
@@ -25,7 +25,7 @@ const onSignOut = function(event){
   let data = getFormFields(event.target);
   api.signOut(data)
   .done(ui.signOutSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onChangePassword = function(event){
@@ -33,7 +33,7 @@ const onChangePassword = function(event){
   let data = getFormFields(event.target);
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onCreatePlace = function(event){
@@ -42,10 +42,8 @@ const onCreatePlace = function(event){
   let data = getFormFields(event.target);
   api.createPlace(data)
   .done(ui.createPlaceSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
-
-
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);

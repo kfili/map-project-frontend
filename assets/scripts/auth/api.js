@@ -44,9 +44,18 @@ const changePassword = function(data){
   });
 };
 
+const createPlace = function(data){
+  return $.ajax({
+    url: app.host + '/places',
+    method: 'POST',
+    data,
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  createPlace
 };
