@@ -17,7 +17,7 @@ const signInSuccess = (data) => {
 };
 
 const signOutSuccess = () => {
-  $("#messages").text("success");
+  $("#messages").text("sign out success");
   $("#status").hide();
   $("#show-places").hide();
   $("#change-password-open").hide();
@@ -25,11 +25,11 @@ const signOutSuccess = () => {
 };
 
 const changePasswordSuccess = () => {
-  $("#messages").text("success");
+  $("#messages").text("password changed");
 };
 
-const success = (data) => {
-  $("#messages").text("success");
+const signUpSuccess = () => {
+  $("#messages").text("sign up success");
 };
 
 const failure = (error) => {
@@ -39,8 +39,8 @@ const failure = (error) => {
 
 module.exports = {
   failure,
-  success,
   signInSuccess,
   signOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  signUpSuccess
 };
