@@ -191,24 +191,21 @@
               <!-- aria-describedby="emailHelp" <=this goes inside input tag above
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
-            <!-- <div class="form-group">
-                <input name="credentials[password]" type="password" class="form-control" id="sign-up-password" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
-              </div>
-              <div class="form-group">
-                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
-              </div>
-              <div class="form-group">
-                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
-              </div>
-              <div class="form-group">
-                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
-              </div>
-              <div class="form-group">
-                <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-password-conf" placeholder="Confirm Password">
-              </div> -->
+            <div class="form-group">
+              <input name="place[place_type]" type="text" class="form-control" id="create-place-type" placeholder="Type of place. Is it a Restaurant? Bar, Cafe? Bar? Cafe, Restaurant? Taverna?">
+            </div>
+            <div class="form-group">
+              <input name="place[location]" type="text" class="form-control" id="create-place-location" placeholder="Enter Lattitude and Longitude, like this: 37.967913, 23.739452">
+            </div>
+            <div class="form-group">
+              <input name="place[address]" type="text" class="form-control" id="create-place-address" placeholder="Address">
+            </div>
+            <div class="form-group">
+              <input name="place[phone]" type="tel" class="form-control" id="create-place-phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <input name="place[rating]" type="number" min="1" max="5" class="form-control" id="create-place-rating" placeholder="How smoke free is it?  1 - 5 stars">
+            </div>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
