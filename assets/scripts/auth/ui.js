@@ -6,6 +6,10 @@ $("#status").hide();
 $("#show-places").hide();
 $("#change-password-open").hide();
 $("#sign-out").hide();
+$("#create-place-open").hide();
+$("#show-places").hide();
+$("#update-place-open").hide();
+$("#delete-place-open").hide();
 
 const signInSuccess = (data) => {
   store.user = data.user;
@@ -14,6 +18,10 @@ const signInSuccess = (data) => {
   $("#show-places").show();
   $("#change-password-open").show();
   $("#sign-out").show();
+  $("#create-place-open").show();
+  $("#show-places").show();
+  $("#update-place-open").show();
+  $("#delete-place-open").show();
 };
 
 const signOutSuccess = () => {
@@ -22,6 +30,10 @@ const signOutSuccess = () => {
   $("#show-places").hide();
   $("#change-password-open").hide();
   $("#sign-out").hide();
+  $("#create-place-open").hide();
+  $("#show-places").hide();
+  $("#update-place-open").hide();
+  $("#delete-place-open").hide();
 };
 
 const changePasswordSuccess = () => {

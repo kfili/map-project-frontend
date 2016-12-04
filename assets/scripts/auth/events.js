@@ -47,13 +47,13 @@ const onCreatePlace = function(event){
 const onUpdatePlace = function(event){
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.updatePlace(data)
+  let id = event.currentTarget[0].valueAsNumber;
+  api.updatePlace(data, id)
   .done(ui.updatePlaceSuccess)
   .fail(ui.failure);
 };
 
 const onShowPlaces = function(event){
-  console.log(event, "showPlaces!");
   event.preventDefault();
   api.showPlaces()
   .done(ui.showPlacesSuccess)
@@ -62,8 +62,8 @@ const onShowPlaces = function(event){
 
 const onDeletePlace = function(event){
   event.preventDefault();
-  let data = getFormFields(event.target);
-  api.deletePlace(data)
+  let id = event.currentTarget[0].valueAsNumber;
+  api.deletePlace(id)
   .done(ui.deletePlaceSuccess)
   .fail(ui.failure);
 };

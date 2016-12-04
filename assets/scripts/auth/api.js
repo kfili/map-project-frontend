@@ -55,10 +55,10 @@ const createPlace = function(data){
   });
 };
 
-const updatePlace = function(data){
+const updatePlace = function(data, id){
   return $.ajax({
     method: 'PATCH',
-    url: app.host + '/places/' + 20,
+    url: app.host + '/places/' + id,
     headers: {
       Authorization: 'Token token=' + store.user.token,
     },
@@ -77,10 +77,10 @@ const showPlaces = function(){
   });
 };
 
-const deletePlace = function(){
+const deletePlace = function(id){
   return $.ajax({
     method: 'DELETE',
-    url: app.host + '/places/' + 20,
+    url: app.host + '/places/' + id,
     headers: {
       Authorization: 'Token token=' + store.user.token,
     },

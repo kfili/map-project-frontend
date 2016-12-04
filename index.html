@@ -81,16 +81,16 @@
               <!-- Create Places Button  -->
               <li>
                 <a href="#">
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-place-modal">
+                  <button id="create-place-open" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-place-modal">
                     Add a Place
                   </button>
                 </a>
               </li>
 
-              <!-- update Places Button  -->
+              <!-- Update Place Button  -->
               <li>
                 <a href="#">
-                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#update-place-modal">
+                  <button id="update-place-open" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#update-place-modal">
                     Edit a Place
                   </button>
                 </a>
@@ -110,11 +110,9 @@
               <!-- Delete place button -->
               <li>
                 <a href="#">
-                  <form id="delete-place">
-                    <button type="submit" class="btn btn-primary btn-lg">
+                    <button id="delete-place-open" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delete-place-modal">
                       Delete a Place
                     </button>
-                  </form>
                 </a>
               </li>
 
@@ -257,6 +255,7 @@
         <div class="modal-body">
           <form id="update-place" class="modal-form">
             <div class="form-group">
+              <input name="place[ID]" type="number" class="form-control" id="update-id" placeholder="Enter ID of place">
               <input name="place[name]" type="text" class="form-control" id="update-place-name" placeholder="Enter name of place">
               <!-- aria-describedby="emailHelp" <=this goes inside input tag above
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
@@ -283,6 +282,26 @@
       </div>
     </div>
   </div>
+
+  <!-- Delete Place Modal -->
+  <div class="modal fade" id="delete-place-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+          <h4 class="modal-title">Delete a Place</h4>
+        </div>
+        <div class="modal-body">
+          <form id="delete-place" class="modal-form">
+            <input type="number" class="form-control" id="delete-id" placeholder="Enter ID of Place">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div id="map"></div>
   <script>
