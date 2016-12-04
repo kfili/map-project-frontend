@@ -46,9 +46,23 @@ const changePassword = function(data){
 
 const createPlace = function(data){
   return $.ajax({
-    url: app.host + '/places',
+    url: app.host + '/places/',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
     data,
+  });
+};
+
+const updatePlace = function(data){
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/places/' + 1,
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+    data: data,
   });
 };
 

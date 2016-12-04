@@ -32,6 +32,10 @@ const signUpSuccess = () => {
   $("#messages").text("sign up success");
 };
 
+const createPlaceSuccess = () => {
+  $("#messages").text("create place success");
+};
+
 const failure = (error) => {
   console.error(error);
   $("#messages").text("failure");
