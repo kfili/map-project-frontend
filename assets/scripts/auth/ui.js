@@ -36,6 +36,14 @@ const createPlaceSuccess = () => {
   $("#messages").text("create place success");
 };
 
+const updatePlaceSuccess = () => {
+  $("#messages").text("update place success");
+};
+
+const showPlacesSuccess = (data) => {
+  $("#messages").text("show place success and" + JSON.stringify(data).toString().toString());
+};
+
 const failure = (error) => {
   console.error(error);
   $("#messages").text("failure");
@@ -46,5 +54,8 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
-  signUpSuccess
+  signUpSuccess,
+  createPlaceSuccess,
+  updatePlaceSuccess,
+  showPlacesSuccess
 };

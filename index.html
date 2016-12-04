@@ -87,7 +87,16 @@
                 </a>
               </li>
 
-              <!-- Show Places Button IN PROGREESSS. DO EVENTS.JS NEXT -->
+              <!-- update Places Button  -->
+              <li>
+                <a href="#">
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#update-place-modal">
+                    Edit a Place
+                  </button>
+                </a>
+              </li>
+
+              <!-- Show Places Button -->
               <li><a href="#">
                     <form id="show-places">
                       <button type="button" class="btn btn-primary btn-lg">
@@ -215,6 +224,44 @@
             </div>
             <div class="form-group">
               <input name="place[rating]" type="number" min="1" max="5" class="form-control" id="create-place-rating" placeholder="How smoke free is it?  1 - 5 stars">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Places Modal -->
+  <div class="modal fade" id="update-place-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit a Place</h4>
+        </div>
+        <div class="modal-body">
+          <form id="update-place" class="modal-form">
+            <div class="form-group">
+              <input name="place[name]" type="text" class="form-control" id="update-place-name" placeholder="Enter name of place">
+              <!-- aria-describedby="emailHelp" <=this goes inside input tag above
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <input name="place[place_type]" type="text" class="form-control" id="update-place-type" placeholder="Type of place. Is it a Restaurant? Bar, Cafe? Bar? Cafe, Restaurant? Taverna?">
+            </div>
+            <div class="form-group">
+              <input name="place[location]" type="text" class="form-control" id="update-place-location" placeholder="Enter Lattitude and Longitude, like this: 37.967913, 23.739452">
+            </div>
+            <div class="form-group">
+              <input name="place[address]" type="text" class="form-control" id="update-place-address" placeholder="Address">
+            </div>
+            <div class="form-group">
+              <input name="place[phone]" type="tel" class="form-control" id="update-place-phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <input name="place[rating]" type="number" min="1" max="5" class="form-control" id="update-place-rating" placeholder="How smoke free is it?  1 - 5 stars">
             </div>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Submit</button>

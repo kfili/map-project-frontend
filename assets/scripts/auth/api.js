@@ -58,11 +58,22 @@ const createPlace = function(data){
 const updatePlace = function(data){
   return $.ajax({
     method: 'PATCH',
-    url: app.host + '/places/' + 1,
+    url: app.host + '/places/' + 19,
     headers: {
       Authorization: 'Token token=' + store.user.token,
     },
     data: data,
+  });
+};
+
+
+const showPlaces = function(){
+  return $.ajax({
+    url: app.host + '/places',
+    method: 'GET',
+    headers : {
+        Authorization: 'Token token=' + store.user.token,
+    }
   });
 };
 
@@ -71,5 +82,7 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  createPlace
+  createPlace,
+  updatePlace,
+  showPlaces
 };

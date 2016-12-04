@@ -37,11 +37,26 @@ const onChangePassword = function(event){
 };
 
 const onCreatePlace = function(event){
-  console.log(event, "create-place!");
   event.preventDefault();
   let data = getFormFields(event.target);
   api.createPlace(data)
   .done(ui.createPlaceSuccess)
+  .fail(ui.failure);
+};
+
+const onUpdatePlace = function(event){
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.updatePlace(data)
+  .done(ui.updatePlaceSuccess)
+  .fail(ui.failure);
+};
+
+const onShowPlaces = function(event){
+  console.log(event, "showPlaces!");
+  event.preventDefault();
+  api.showPlaces()
+  .done(ui.showPlacesSuccess)
   .fail(ui.failure);
 };
 
@@ -51,6 +66,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
   $('#create-place').on('submit', onCreatePlace);
+  $('#update-place').on('submit', onUpdatePlace);
+  $('#show-places').on('click', onShowPlaces);
 };
 
 module.exports = {
