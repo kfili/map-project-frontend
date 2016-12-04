@@ -60,6 +60,14 @@ const onShowPlaces = function(event){
   .fail(ui.failure);
 };
 
+const onDeletePlace = function(event){
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.deletePlace(data)
+  .done(ui.deletePlaceSuccess)
+  .fail(ui.failure);
+};
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
@@ -68,6 +76,7 @@ const addHandlers = () => {
   $('#create-place').on('submit', onCreatePlace);
   $('#update-place').on('submit', onUpdatePlace);
   $('#show-places').on('click', onShowPlaces);
+  $('#delete-place').on('click', onDeletePlace);
 };
 
 module.exports = {

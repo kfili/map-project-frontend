@@ -58,7 +58,7 @@ const createPlace = function(data){
 const updatePlace = function(data){
   return $.ajax({
     method: 'PATCH',
-    url: app.host + '/places/' + 19,
+    url: app.host + '/places/' + 20,
     headers: {
       Authorization: 'Token token=' + store.user.token,
     },
@@ -77,6 +77,16 @@ const showPlaces = function(){
   });
 };
 
+const deletePlace = function(){
+  return $.ajax({
+    method: 'DELETE',
+    url: app.host + '/places/' + 20,
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -84,5 +94,6 @@ module.exports = {
   changePassword,
   createPlace,
   updatePlace,
-  showPlaces
+  showPlaces,
+  deletePlace
 };

@@ -44,6 +44,10 @@ const showPlacesSuccess = (data) => {
   $("#messages").text("show place success and" + JSON.stringify(data).toString().toString());
 };
 
+const deletePlaceSuccess = () => {
+  $("#messages").text("place deleted successfully");
+};
+
 const failure = (error) => {
   console.error(error);
   $("#messages").text("failure");
@@ -57,5 +61,6 @@ module.exports = {
   signUpSuccess,
   createPlaceSuccess,
   updatePlaceSuccess,
-  showPlacesSuccess
+  showPlacesSuccess,
+  deletePlaceSuccess
 };
