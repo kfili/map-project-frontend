@@ -57,25 +57,49 @@ webpackJsonp([0],[
 	var onSignUp = function onSignUp(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.signUp(data).done(ui.success).fail(ui.fail);
+	  api.signUp(data).done(ui.signUpSuccess).fail(ui.failure);
 	};
 
 	var onSignIn = function onSignIn(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.signIn(data).done(ui.signInSuccess).fail(ui.fail);
+	  api.signIn(data).done(ui.signInSuccess).fail(ui.failure);
 	};
 
 	var onSignOut = function onSignOut(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.signOut(data).done(ui.signOutSuccess).fail(ui.fail);
+	  api.signOut(data).done(ui.signOutSuccess).fail(ui.failure);
 	};
 
 	var onChangePassword = function onChangePassword(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.changePassword(data).done(ui.changePasswordSuccess).fail(ui.fail);
+	  api.changePassword(data).done(ui.changePasswordSuccess).fail(ui.failure);
+	};
+
+	var onCreatePlace = function onCreatePlace(event) {
+	  event.preventDefault();
+	  var data = getFormFields(event.target);
+	  api.createPlace(data).done(ui.createPlaceSuccess).fail(ui.failure);
+	};
+
+	var onUpdatePlace = function onUpdatePlace(event) {
+	  event.preventDefault();
+	  var data = getFormFields(event.target);
+	  var id = event.currentTarget[0].valueAsNumber;
+	  api.updatePlace(data, id).done(ui.updatePlaceSuccess).fail(ui.failure);
+	};
+
+	var onShowPlaces = function onShowPlaces(event) {
+	  event.preventDefault();
+	  api.showPlaces().done(ui.showPlacesSuccess).fail(ui.failure);
+	};
+
+	var onDeletePlace = function onDeletePlace(event) {
+	  event.preventDefault();
+	  var id = event.currentTarget[0].valueAsNumber;
+	  api.deletePlace(id).done(ui.deletePlaceSuccess).fail(ui.failure);
 	};
 
 	var addHandlers = function addHandlers() {
@@ -83,6 +107,10 @@ webpackJsonp([0],[
 	  $('#sign-in').on('submit', onSignIn);
 	  $('#sign-out').on('submit', onSignOut);
 	  $('#change-password').on('submit', onChangePassword);
+	  $('#create-place').on('submit', onCreatePlace);
+	  $('#update-place').on('submit', onUpdatePlace);
+	  $('#show-places').on('click', onShowPlaces);
+	  $('#delete-place').on('click', onDeletePlace);
 	};
 
 	module.exports = {
@@ -140,11 +168,57 @@ webpackJsonp([0],[
 	  });
 	};
 
+	var createPlace = function createPlace(data) {
+	  return $.ajax({
+	    url: app.host + '/places/',
+	    method: 'POST',
+	    headers: {
+	      Authorization: 'Token token=' + store.user.token
+	    },
+	    data: data
+	  });
+	};
+
+	var updatePlace = function updatePlace(data, id) {
+	  return $.ajax({
+	    method: 'PATCH',
+	    url: app.host + '/places/' + id,
+	    headers: {
+	      Authorization: 'Token token=' + store.user.token
+	    },
+	    data: data
+	  });
+	};
+
+	var showPlaces = function showPlaces() {
+	  return $.ajax({
+	    url: app.host + '/places',
+	    method: 'GET',
+	    headers: {
+	      Authorization: 'Token token=' + store.user.token
+	    }
+	  });
+	};
+
+	var deletePlace = function deletePlace(id) {
+	  return $.ajax({
+	    method: 'DELETE',
+	    url: app.host + '/places/' + id,
+	    headers: {
+	      Authorization: 'Token token=' + store.user.token
+	    }
+	  });
+	};
+
 	module.exports = {
 	  signUp: signUp,
 	  signIn: signIn,
 	  signOut: signOut,
-	  changePassword: changePassword
+	  changePassword: changePassword,
+	  createPlace: createPlace,
+	  updatePlace: updatePlace,
+	  showPlaces: showPlaces,
+	  deletePlace: deletePlace
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -155,6 +229,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	module.exports = {
+	  // host: 'http://localhost:4741/',
 	  host: 'https://obscure-mountain-29763.herokuapp.com/'
 	};
 
@@ -182,6 +257,10 @@ webpackJsonp([0],[
 	$("#show-places").hide();
 	$("#change-password-open").hide();
 	$("#sign-out").hide();
+	$("#create-place-open").hide();
+	$("#show-places").hide();
+	$("#update-place-open").hide();
+	$("#delete-place-open").hide();
 
 	var signInSuccess = function signInSuccess(data) {
 	  store.user = data.user;
@@ -190,22 +269,46 @@ webpackJsonp([0],[
 	  $("#show-places").show();
 	  $("#change-password-open").show();
 	  $("#sign-out").show();
+	  $("#create-place-open").show();
+	  $("#show-places").show();
+	  $("#update-place-open").show();
+	  $("#delete-place-open").show();
 	};
 
 	var signOutSuccess = function signOutSuccess() {
-	  $("#messages").text("success");
+	  $("#messages").text("sign out success");
 	  $("#status").hide();
 	  $("#show-places").hide();
 	  $("#change-password-open").hide();
 	  $("#sign-out").hide();
+	  $("#create-place-open").hide();
+	  $("#show-places").hide();
+	  $("#update-place-open").hide();
+	  $("#delete-place-open").hide();
 	};
 
 	var changePasswordSuccess = function changePasswordSuccess() {
-	  $("#messages").text("success");
+	  $("#messages").text("password changed");
 	};
 
-	var success = function success(data) {
-	  $("#messages").text("success");
+	var signUpSuccess = function signUpSuccess() {
+	  $("#messages").text("sign up success");
+	};
+
+	var createPlaceSuccess = function createPlaceSuccess() {
+	  $("#messages").text("create place success");
+	};
+
+	var updatePlaceSuccess = function updatePlaceSuccess() {
+	  $("#messages").text("update place success");
+	};
+
+	var showPlacesSuccess = function showPlacesSuccess(data) {
+	  $("#messages").text("show place success and" + JSON.stringify(data).toString().toString());
+	};
+
+	var deletePlaceSuccess = function deletePlaceSuccess() {
+	  $("#messages").text("place deleted successfully");
 	};
 
 	var failure = function failure(error) {
@@ -215,10 +318,14 @@ webpackJsonp([0],[
 
 	module.exports = {
 	  failure: failure,
-	  success: success,
 	  signInSuccess: signInSuccess,
 	  signOutSuccess: signOutSuccess,
-	  changePasswordSuccess: changePasswordSuccess
+	  changePasswordSuccess: changePasswordSuccess,
+	  signUpSuccess: signUpSuccess,
+	  createPlaceSuccess: createPlaceSuccess,
+	  updatePlaceSuccess: updatePlaceSuccess,
+	  showPlacesSuccess: showPlacesSuccess,
+	  deletePlaceSuccess: deletePlaceSuccess
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
