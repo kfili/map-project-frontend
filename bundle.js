@@ -110,7 +110,7 @@ webpackJsonp([0],[
 	  $('#create-place').on('submit', onCreatePlace);
 	  $('#update-place').on('submit', onUpdatePlace);
 	  $('#show-places').on('click', onShowPlaces);
-	  $('#delete-place').on('click', onDeletePlace);
+	  $('#delete-place').on('submit', onDeletePlace);
 	};
 
 	module.exports = {
