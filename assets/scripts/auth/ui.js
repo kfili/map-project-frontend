@@ -6,6 +6,10 @@ $("#status").hide();
 $("#show-places").hide();
 $("#change-password-open").hide();
 $("#sign-out").hide();
+$("#create-place-open").hide();
+$("#show-places").hide();
+$("#update-place-open").hide();
+$("#delete-place-open").hide();
 
 const signInSuccess = (data) => {
   store.user = data.user;
@@ -14,22 +18,46 @@ const signInSuccess = (data) => {
   $("#show-places").show();
   $("#change-password-open").show();
   $("#sign-out").show();
+  $("#create-place-open").show();
+  $("#show-places").show();
+  $("#update-place-open").show();
+  $("#delete-place-open").show();
 };
 
 const signOutSuccess = () => {
-  $("#messages").text("success");
+  $("#messages").text("sign out success");
   $("#status").hide();
   $("#show-places").hide();
   $("#change-password-open").hide();
   $("#sign-out").hide();
+  $("#create-place-open").hide();
+  $("#show-places").hide();
+  $("#update-place-open").hide();
+  $("#delete-place-open").hide();
 };
 
 const changePasswordSuccess = () => {
-  $("#messages").text("success");
+  $("#messages").text("password changed");
 };
 
-const success = (data) => {
-  $("#messages").text("success");
+const signUpSuccess = () => {
+  $("#messages").text("sign up success");
+};
+
+const createPlaceSuccess = () => {
+  $("#messages").text("create place success");
+};
+
+const updatePlaceSuccess = () => {
+  $("#messages").text("update place success");
+};
+
+const showPlacesSuccess = (data) => {
+  $("#messages").text("show place success and" + JSON.stringify(data).toString().toString());
+};
+
+const deletePlaceSuccess = () => {
+  $("#messages").text("place deleted successfully");
 };
 
 const failure = (error) => {
@@ -39,8 +67,12 @@ const failure = (error) => {
 
 module.exports = {
   failure,
-  success,
   signInSuccess,
   signOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  signUpSuccess,
+  createPlaceSuccess,
+  updatePlaceSuccess,
+  showPlacesSuccess,
+  deletePlaceSuccess
 };

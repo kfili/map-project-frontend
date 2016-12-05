@@ -44,9 +44,56 @@ const changePassword = function(data){
   });
 };
 
+const createPlace = function(data){
+  return $.ajax({
+    url: app.host + '/places/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+    data,
+  });
+};
+
+const updatePlace = function(data, id){
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/places/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+    data: data,
+  });
+};
+
+
+const showPlaces = function(){
+  return $.ajax({
+    url: app.host + '/places',
+    method: 'GET',
+    headers : {
+        Authorization: 'Token token=' + store.user.token,
+    }
+  });
+};
+
+const deletePlace = function(id){
+  return $.ajax({
+    method: 'DELETE',
+    url: app.host + '/places/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  createPlace,
+  updatePlace,
+  showPlaces,
+  deletePlace
 };

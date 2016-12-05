@@ -8,8 +8,8 @@ const onSignUp = function(event){
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signUp(data)
-  .done(ui.success)
-  .fail(ui.fail);
+  .done(ui.signUpSuccess)
+  .fail(ui.failure);
 };
 
 const onSignIn = function(event){
@@ -17,7 +17,7 @@ const onSignIn = function(event){
   let data = getFormFields(event.target);
   api.signIn(data)
   .done(ui.signInSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onSignOut = function(event){
@@ -25,7 +25,7 @@ const onSignOut = function(event){
   let data = getFormFields(event.target);
   api.signOut(data)
   .done(ui.signOutSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
 const onChangePassword = function(event){
@@ -33,16 +33,50 @@ const onChangePassword = function(event){
   let data = getFormFields(event.target);
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
-  .fail(ui.fail);
+  .fail(ui.failure);
 };
 
+const onCreatePlace = function(event){
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  api.createPlace(data)
+  .done(ui.createPlaceSuccess)
+  .fail(ui.failure);
+};
 
+const onUpdatePlace = function(event){
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  let id = event.currentTarget[0].valueAsNumber;
+  api.updatePlace(data, id)
+  .done(ui.updatePlaceSuccess)
+  .fail(ui.failure);
+};
+
+const onShowPlaces = function(event){
+  event.preventDefault();
+  api.showPlaces()
+  .done(ui.showPlacesSuccess)
+  .fail(ui.failure);
+};
+
+const onDeletePlace = function(event){
+  event.preventDefault();
+  let id = event.currentTarget[0].valueAsNumber;
+  api.deletePlace(id)
+  .done(ui.deletePlaceSuccess)
+  .fail(ui.failure);
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#create-place').on('submit', onCreatePlace);
+  $('#update-place').on('submit', onUpdatePlace);
+  $('#show-places').on('click', onShowPlaces);
+  $('#delete-place').on('click', onDeletePlace);
 };
 
 module.exports = {
