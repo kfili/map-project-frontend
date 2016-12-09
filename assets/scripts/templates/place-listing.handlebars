@@ -1,0 +1,32 @@
+{{#each this}}
+
+  <h1> <small>{{this.name}}
+  </small></h1>
+    {{#if this.place_type}}
+      {{this.place_type}}
+    {{else}}
+    <span class='h-spans'>Type of place unknown.</span>
+    {{/if}}
+  <div>
+    {{#if this.address}}
+      {{this.address}}
+    {{else}}
+      <span class='h-spans'>No address.</span>
+    {{/if}}
+  </div>
+  <div>
+    {{#if this.phone}}
+      {{this.phone}}
+    {{else}}
+      <span class='h-spans'>No phone.</span>
+    {{/if}}
+  </div>
+  <div>
+    {{#if this.rating}}
+      Smoke free rating: {{this.rating}}/5
+    {{else}}
+      <span class='h-spans'>No rating.</span>
+    {{/if}}
+  </div>
+  <br>
+{{/each}}

@@ -31,9 +31,18 @@ h5 {
 #map {
   height: 100%;
 }
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
+#messages {
+  border: 1px solid $font-color;
+  max-height: 200px; // or height instead of max-height
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+ }
