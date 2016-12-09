@@ -1,5 +1,6 @@
 'use strict';
 const store = require('../store');
+const showPlacesTemplate = require('../templates/place-listing.handlebars');
 
 // hide the following buttons and items on page load
 $("#status").hide();
@@ -53,7 +54,8 @@ const updatePlaceSuccess = () => {
 };
 
 const showPlacesSuccess = (data) => {
-  $("#messages").text("show place success and" + JSON.stringify(data).toString().toString());
+  console.log(data);
+  $('#messages').html(showPlacesTemplate(data.places));
 };
 
 const deletePlaceSuccess = () => {
