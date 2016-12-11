@@ -1,7 +1,11 @@
 {{#each this}}
 
-  <h1> <small>{{this.name}}
-  </small></h1>
+  <h5> <small>
+    ID: {{this.id}}
+  </small></h5>
+  <h4> <small>
+    {{this.name}}
+  </small></h5>
     {{#if this.place_type}}
       {{this.place_type}}
     {{else}}
