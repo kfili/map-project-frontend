@@ -36,7 +36,6 @@ I approached tasks and built the app in the following order:
 - rename front end repo so that gh-pages URL is nice.
 - map should center on user-IP-address location on page load.
 - users add a more detailed smoke-free rating for places, in a separate modal.
-- add 
 
 ### User Stories:
 
